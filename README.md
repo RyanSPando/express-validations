@@ -1,3 +1,4 @@
+[https://slides.com/akyunaakish/express-validations]('https://slides.com/akyunaakish/express-validations')
 ## Set Up
 
 - Read through this document to get familiar with the concepts
@@ -80,7 +81,7 @@ $ psql knex-people
 var knex = require('knex')(require('../knexfile')['development']);
 ```
 
-- When your app and database is properly setup, Complete all of the stories below 
+- When your app and database is properly setup, Complete all of the stories below
 
 ## Stories
 
