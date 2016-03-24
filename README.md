@@ -5,7 +5,7 @@ Slides: [https://slides.com/akyunaakish/express-validations]('https://slides.com
 ## Set Up
 
 - Read through this document to get familiar with the concepts
-- cd into your cloned repo in your terminal, then Generate a new express app, also install pg and knex
+- cd into your cloned repo in the terminal, then Generate a new express app, also install pg and knex
 
 ```
 $ express --hbs --git .
