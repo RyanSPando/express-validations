@@ -38,14 +38,3 @@ When a user fills in the name field with a name that already exists in the datab
 And clicks "Submit"
 Then the 'new' template should be re-rendered and error messages should appear that read "Name is already taken"
 ```
-
-BONUS:  implement this story using unique constraints and error-handling.  How would you add the unique index to the table?   Directly in the console?  If so, how would you get that change onto other developer's machines, and into production?
-
-
-### Extract an error partial
-
-Now that you have error messages, create an errors partial, and include it in your form.
-
-- http://jade-lang.com/reference/includes/
-- https://github.com/barc/express-hbs
-- https://scotch.io/tutorials/use-ejs-to-template-your-node-application
