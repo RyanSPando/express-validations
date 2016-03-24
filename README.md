@@ -64,7 +64,7 @@ exports.down = function(knex, Promise) {
 };
 ```
 
-* Then run that migrations file to add the people table to the knex-people database you created
+* Then run that migrations file in the root directory of this repo to add the people table to the knex-people database you created
 
 ```
 $ knex migrate:latest
@@ -85,7 +85,7 @@ var knex = require('knex')(require('../knexfile')['development']);
 
 - When your app and database is properly setup, Complete all of the stories below
 
-## Stories
+## Complete the stories below
 
 ### Users can create people
 
