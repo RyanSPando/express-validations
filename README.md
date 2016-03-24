@@ -113,9 +113,12 @@ Then the 'new' template should be re-rendered and error messages should appear
 ### Person names must be unique
 
 ```
-When a user fills in the name field with a name that already exists in the database
+When a user fills in the name field with a name that already exists
+in the database
 And clicks "Submit"
-Then the 'new' template should be re-rendered and error messages should appear that read "Name is already taken"
+Then the 'new' template should be re-rendered and error messages
+ should appear
+that read "Name is already taken"
 ```
 
 # Turn in
