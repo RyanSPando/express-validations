@@ -117,7 +117,7 @@ When a user fills in the name field with a name that already exists
 in the database
 And clicks "Submit"
 Then the 'new' template should be re-rendered and error messages
- should appear
+should appear
 that read "Name is already taken"
 ```
 
