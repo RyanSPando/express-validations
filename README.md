@@ -47,7 +47,7 @@ $ createdb knex-people
 $ knex migrate:make create_people
 ```
 
-* Now you should have a migrations folder, in your text editor, open up the file you generated within the migrations folder and create this table schema:
+* Now you should have a migrations folder. In your text editor, open up the file you generated within the migrations folder and create this table schema:
 
 ```
 exports.up = function(knex, Promise) {
