@@ -1,11 +1,13 @@
 Slides: [https://slides.com/akyunaakish/express-validations]('https://slides.com/akyunaakish/express-validations')
+
+## Fork and clone this repo to get started, make a pull request to turn it in
+
 ## Set Up
 
 - Read through this document to get familiar with the concepts
-- Generate a new express app
+- cd into your cloned repo in your terminal, then Generate a new express app
 
 ```
-$ cd expressValidations
 $ express --hbs --git .
 ```
 
