@@ -79,7 +79,7 @@ $ psql knex-people
   select * from people;
 ```
 
-* Now when you have properly created your database and table, add the line below to the top of your routes/index.js file to be able to reference your database properly to perform CRUD operations in your routes
+* Now when you have properly created your database and table, add the line below to the 3rd line of your routes/index.js file to be able to reference your database properly in order to perform CRUD operations in your routes
 
 ```
 var knex = require('knex')(require('../knexfile')['development']);
