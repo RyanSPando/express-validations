@@ -93,8 +93,9 @@ var knex = require('knex')(require('../knexfile')['development']);
 
 ```
 When a user goes to the site's homepage
-And clicks "Add a Person"
-And fills out the form
+And clicks on the anchor tag "Add a Person"
+The user will be taken to a page with a create person form
+When the user fills out the form
 And clicks "Create Person"
 Then they should see the created person on the people index page
 And a success message should appear
