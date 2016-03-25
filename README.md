@@ -120,10 +120,11 @@ And a success message should appear
 ### Errors are displayed when a form is not filled out correctly
 
 ```
-When a user fills out a form
-And clicks "Submit"
-When any of the form fields are blank (or invalid)
-Then the 'new' template should be re-rendered and error messages should appear
+When a user fills out a the create person form
+And clicks "Create Person"
+When any of the form fields are blank (or the datatype is invalid)
+Then the 'new' template should be re-rendered and relevant error messages should appear
+(the error messages should be added into an error array so you only see the errors the currently apply)
 ```
 ![](wireframes/person2.png)
 
@@ -132,8 +133,8 @@ Then the 'new' template should be re-rendered and error messages should appear
 ```
 When a user fills in the name field with a name that already exists
 in the database
-And clicks "Submit"
-Then the 'new' template should be re-rendered and error messages
+And clicks "Create Person"
+Then the 'new' template should be re-rendered and an error message
 should appear
 that read "Name is already taken"
 ```
