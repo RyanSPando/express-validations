@@ -89,6 +89,15 @@ var knex = require('knex')(require('../knexfile')['development']);
 
 ## Complete the stories below
 
+### The homepage
+
+```
+When a user goes to the '/' route
+they should be redirected to the '/people' get route
+all of the people from the database should be displayed on the people.hbs page
+in a table
+```
+
 ### Users can create people
 
 ```
@@ -96,11 +105,16 @@ When a user goes to the site's homepage
 And clicks on the anchor tag "Add a Person"
 The user will be taken to a page with a create person form
 When the user fills out the form
-And clicks "Create Person"
+And clicks "Create Person" as long as the form was filled out properly
+the person should be inserted into the database and the user should be redirected to '/people'
+```
+![](wireframes/person1.png)
+
+```
 Then they should see the created person on the people index page
 And a success message should appear
 ```
-![](wireframes/person1.png)
+
 ![](wireframes/person3.png)
 
 ### Errors are displayed when a form is not filled out correctly
