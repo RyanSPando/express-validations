@@ -111,7 +111,7 @@ the person should be inserted into the database and the user should be redirecte
 ![](wireframes/person1.png)
 
 ```
-Then they should see the created person on the people index page
+Then they should see the created person on the people people.hbs ('/people') page
 And a success message should appear
 ```
 
