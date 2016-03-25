@@ -144,3 +144,11 @@ that read "Name is already taken"
 * Answer questions within WRITEHERE.md file before finishing
 
 * Make a pull request with your completed code
+
+# Stretch Goals
+
+* Add update and delete functionality
+
+* Properly validate the update operations so that proper data isn't replaced with invalid data and so that error messages will appear when invalid data is submitted
+
+* When data is updated or deleted, display success messages unique to each operation
