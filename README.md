@@ -126,4 +126,6 @@ that read "Name is already taken"
 
 # Turn in
 
+* Answer questions within WRITEHERE.md file before finishing
+
 * Make a pull request with your completed code
