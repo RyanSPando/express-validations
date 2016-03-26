@@ -8,3 +8,6 @@
 
 * Describe why validations are important
 <!-- Your answer here -->
+
+* Describe what next(err) does
+<!-- Your answer here -->

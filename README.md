@@ -72,7 +72,7 @@ exports.down = function(knex, Promise) {
 $ knex migrate:latest
 ```
 
-* Your knex-people database should now have a table "people" which has a name and hobby columns. You can confirm this by looking in psql
+* Your knex-people database should now have a table "people" which has a name and hobby column. You can confirm this by looking in psql
 
 ```
 $ psql knex-people
