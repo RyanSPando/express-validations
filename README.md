@@ -122,7 +122,7 @@ And a success message should appear
 ```
 When a user fills out a the create person form
 And clicks "Create Person"
-When any of the form fields are blank (or the datatype is invalid)
+When any of the form fields are blank
 Then the 'new' template should be re-rendered and relevant error messages should appear
 (the error messages should be added into an error array so you only see the errors that currently apply)
 ```
