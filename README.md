@@ -152,3 +152,5 @@ that read "Name is already taken"
 * Properly validate the update operations so that proper data isn't replaced with invalid data and so that error messages will appear when invalid data is submitted
 
 * When data is updated or deleted, display success messages unique to each operation
+
+* Validate that dataypes submitted through the form are the correct datatypes for that input field. For example: don't allow a number to be inserted as a name. Create error messages for those circumstances as well and re-render the page to display those error messages.
