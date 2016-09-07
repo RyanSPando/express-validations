@@ -1,12 +1,11 @@
 # Express Validations
 
-[Slides]('https://slides.com/akyunaakish/express-validations')
+[Slides](https://slides.com/akyunaakish/express-validations)
 
 ## Objectives
 
 1. Generate error messages based on whether or not data was supplied in a form submit, checking `req.body` to do so.
 1. Prevent duplicate data from being added into the database. Generate error messages if certain data submitted through a form already exists in the database.
-1. Use an error array to contain only the errors that apply during a form submission.
 
 ## Setup
 
@@ -19,7 +18,7 @@
 
 ### Database Setup
 
-1. Initialize `knex` withing the root directory:
+1. Initialize `knex` within the root directory:
 
   ```sh
   $ knex init
@@ -80,11 +79,11 @@
 
 ### Homepage
 
-  ```
-  When a user goes to the '/' route
-  they should be redirected to the '/people' GET route
-  all of the people from the database should be displayed on the people.html page in a table
-  ```
+```
+When a user goes to the '/' route
+they should be redirected to the '/people' GET route
+all of the people from the database should be displayed on the people.html page in a table
+```
 
 ### Users can create people
 
