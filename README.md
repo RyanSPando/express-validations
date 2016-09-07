@@ -1,102 +1,90 @@
-Slides: [https://slides.com/akyunaakish/express-validations]('https://slides.com/akyunaakish/express-validations')
+# Express Validations
 
-## Fork and clone this repo to get started, make a pull request to turn it in
+[Slides]('https://slides.com/akyunaakish/express-validations')
 
-## Set Up
+## Objectives
 
-- Read through this document to get familiar with the concepts
-- cd into your cloned repo in the terminal, then Generate a new express app, also install pg and knex
+1. Generate error messages based on whether or not data was supplied in a form submit, checking `req.body` to do so.
+1. Prevent duplicate data from being added into the database. Generate error messages if certain data submitted through a form already exists in the database.
+1. Use an error array to contain only the errors that apply during a form submission.
 
-```
-$ express --hbs --git .
-$ npm install
-$ npm install --save pg knex@0.9.0
-```
+## Setup
 
-### Database setup
-* Initialize knex within the terminal inside of the root directory of this repo
+### Getting Started
 
-```
-$ knex init
-```
+1. Fork/Clone this repo
+1. Install the dependencies
+1. Read through this document to get familiar with the concepts
+1. Generate a new express app, making sure to install `pg` and `knex`: `npm install --save pg knex`
 
-* Replace the code inside of your knexfile.js with the code below for simplicity
+### Database Setup
 
-```
-module.exports = {
+1. Initialize `knex` withing the root directory:
 
-  development: {
-    client: 'postgresql',
-    connection: 'postgresql://localhost/knex-people',
-    pool: {
-      min: 2,
-      max: 10
+  ```sh
+  $ knex init
+  ```
+
+1. Update the code in *knexfile.js* with:
+
+  ```javascript
+  module.exports = {
+    development: {
+      client: 'postgresql',
+      connection: 'postgresql://localhost/knex_people',
+      migrations: {
+        directory: __dirname + '/src/server/db/migrations'
+      },
     }
-  }
+  };
+  ```
 
-};
-```
+1. Create a new database:
 
-* In the terminal, create a database that matches the name in your knexfile(this can be done from any directory)
+  ```sh
+  $ createdb knex_people
+  ```
 
-```
-$ createdb knex-people
-```
+1. Create a new migrations file:
 
-* In the root directory of this repo, create a migrations file with knex
+  ```sh
+  $ knex migrate:make create_people
+  ```
 
-```
-$ knex migrate:make create_people
-```
+1. In your text editor, open up the file you generated within the migrations folder and create this table schema:
 
-* Now you should have a migrations folder. In your text editor, open up the file you generated within the migrations folder and create this table schema:
+  ```javascript
+  exports.up = (knex, Promise) => {
+    return knex.schema.createTable('people', (table) => {
+      table.increments();
+      table.string('username').unique().notNullable();
+      table.string('hobby')notNullable();
+      table.timestamp('created_at').defaultTo(knex.fn.now());
+    });
+  };
 
-```
-exports.up = function(knex, Promise) {
-  return knex.schema.createTable('people', function (table) {
-    table.increments();
-    table.string('name');
-    table.string('hobby');
-    table.timestamps();
-  })
-};
+  exports.down = (knex, Promise) => {
+    return knex.schema.dropTable('people');
+  };
+  ```
 
-exports.down = function(knex, Promise) {
+1. Apply the migration:
 
-};
-```
+  ```sh
+  $ knex migrate:latest
+  ```
 
-* Then run that migrations file in the root directory of this repo to add the people table to the knex-people database you created
+  Did this work? Find out!
 
-```
-$ knex migrate:latest
-```
+## User Stories
 
-* Your knex-people database should now have a table "people" which has a name and hobby column. You can confirm this by looking in psql
+### Homepage
 
-```
-$ psql knex-people
-  select * from people;
-```
-
-* Now when you have properly created your database and table, add the line below to the 3rd line of your routes/index.js file to be able to reference your database properly in order to perform CRUD operations in your routes
-
-```
-var knex = require('knex')(require('../knexfile')['development']);
-```
-
-- When your app and database is properly setup, Complete all of the stories below
-
-## Complete the stories below
-
-### The homepage
-
-```
-When a user goes to the '/' route
-they should be redirected to the '/people' get route
-all of the people from the database should be displayed on the people.hbs page
-in a table
-```
+  ```
+  When a user goes to the '/' route
+  they should be redirected to the '/people' GET route
+  all of the people from the database should be displayed on the people.html page in a table
+  ```
 
 ### Users can create people
 
@@ -108,16 +96,17 @@ When the user fills out the form
 And clicks "Create Person" as long as the form was filled out properly
 the person should be inserted into the database and the user should be redirected to '/people'
 ```
+
 ![](wireframes/person1.png)
 
 ```
-Then they should see the created person on the people people.hbs ('/people') page
+Then a user should see the created person on the people people.html ('/people') page
 And a success message should appear
 ```
 
 ![](wireframes/person3.png)
 
-### Errors are displayed when a form is not filled out correctly
+### Errors
 
 ```
 When a user fills out a the create person form
@@ -126,31 +115,22 @@ When any of the form fields are blank
 Then the 'new' template should be re-rendered and relevant error messages should appear
 (the error messages should be added into an error array so you only see the errors that currently apply)
 ```
+
 ![](wireframes/person2.png)
 
-### Person names must be unique
+### Validation
 
 ```
-When a user fills in the name field with a name that already exists
+When a user fills in the username field with a username that already exists
 in the database
 And clicks "Create Person"
 Then the 'new' template should be re-rendered and an error message
-should appear
-that read "Name is already taken"
+should appear that read "Username is already taken"
 ```
 
-# Turn in
+## Stretch Goals
 
-* Answer questions within WRITEHERE.md file before finishing
-
-* Make a pull request with your completed code
-
-# Stretch Goals
-
-* Add update and delete functionality
-
-* Properly validate the update operations so that proper data isn't replaced with invalid data and so that error messages will appear when invalid data is submitted
-
-* When data is updated or deleted, display success messages unique to each operation
-
-* Validate that dataypes submitted through the form are the correct datatypes for that input field. For example: don't allow a number to be inserted as a name. Create error messages for those circumstances as well and re-render the page to display those error messages.
+- Add update and delete functionality
+- Properly validate the update operations so that proper data isn't replaced with invalid data and so that error messages will appear when invalid data is submitted
+- When data is updated or deleted, display success messages unique to each operation
+- Validate that datatypes submitted through the form are the correct datatypes for that input field. For example: don't allow a number to be inserted as a username. Create error messages for those circumstances as well and re-render the page to display those error messages.
