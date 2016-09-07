@@ -12,9 +12,9 @@
 ### Getting Started
 
 1. Fork/Clone this repo
-1. Install the dependencies
 1. Read through this document to get familiar with the concepts
 1. Generate a new express app, making sure to install `pg` and `knex`: `npm install --save pg knex`
+1. Install the dependencies
 
 ### Database Setup
 
