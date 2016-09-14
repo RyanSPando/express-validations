@@ -1,0 +1,28 @@
+{% extends "_base.html" %}
+
+{% block title %}{% endblock %}
+
+{% block content %}
+  {% if errors.length %}
+  <ul>
+    {% for err in errors %}
+    <li class="text-danger">{{err}}</li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+  <div class="container">
+    <h1>{{title}}</h1>
+    <div class="form-inline">
+      <form class="form-group" action="/people" method="post">
+        <label for="username">User Name</label>
+        <input type="text" name="username" value="" class="form-control">
+        <br>
+        <label for="hobby">Hobby</label>
+        <input type="text" name="hobby" value="" class="form-control">
+        <br>
+        <input type="submit" name="submit" value="submit" class="btn btn-default">
+      </form>
+    </div>
+  </div>
+
+{% endblock %}
